@@ -38,6 +38,14 @@ static void lookup_syms(void)
 	il2cpp_object_new            = dlsym(get_il_handle(), "il2cpp_object_new");
 }
 
+[...]
+
+static size_t hooked(size_t a, size_t b, size_t c, size_t d, size_t e /*, size_t f NULL*/)
+{
+	// i dont feel safe working with this ABI :(
+	return 1;
+}
+
 static void patch_telepathy_pinning(Il2CppClass * class)
 {
 	il2cpp_object_new(class); // poke il2cpp otherwise the class may not be initialized
@@ -75,7 +83,6 @@ void patch_crypto_common(void)
 		
 		if (client = il2cpp_class_from_name(asms[i]->image, "Telepathy", "Client"))
 			patch_telepathy_pinning(client);
-		
 	}
 }
 
