@@ -1,0 +1,8 @@
+libunity.so
+ dlsym -> utsym
+ connect -> utnnect
+
+libil2cpp.so
+ inet_pton -> i2cn_pton
+ connect -> ilnnect 
+ 
